@@ -10,13 +10,13 @@ import android.widget.EditText;
 
 import com.itis.libs.parserng.android.expressParser.MathExpression;
 
-public class TableLayout extends AppCompatActivity {
+public class calculator extends AppCompatActivity {
     private EditText console;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_table_layout);
+        setContentView(R.layout.calculator);
         console=findViewById(R.id.input);
         console.setShowSoftInputOnFocus(false);
 

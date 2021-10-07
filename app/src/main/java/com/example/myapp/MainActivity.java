@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //start other activity
-                Intent intent=new Intent(getApplicationContext(),TableLayout.class);
+                Intent intent=new Intent(getApplicationContext(), calculator.class);
                 startActivity((intent));
             }
         });
