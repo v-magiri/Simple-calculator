@@ -6,21 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".calculator">
 
+    <TextView
+        android:id="@+id/invisibletxtview"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:autoSizeMaxTextSize="45sp"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text=""
+        android:textSize="36sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.074"
+        tools:layout_editor_absoluteX="-33dp" />
+
     <EditText
         android:id="@+id/input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
         android:autofillHints="false"
+        android:gravity="end"
         android:inputType="none"
         android:text="@string/console"
         android:textAlignment="textEnd"
         android:textSize="36sp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor"
-        android:gravity="end" />
+        app:layout_constraintVertical_bias="0.074"
+        tools:ignore="LabelFor" />
 
     <ImageButton
         android:id="@+id/backspacebtn"
@@ -370,5 +395,6 @@
 
 
     </TableLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

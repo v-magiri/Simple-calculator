@@ -2,30 +2,60 @@
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.itis.libs.parserng.android.expressParser.MathExpression;
 
 public class calculator extends AppCompatActivity {
-    private EditText console;
+    private EditText console,header;
+    private TextView txtview;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
+        String firstName;
+        Intent qt=getIntent();
+        firstName=qt.getStringExtra("key1");
+
         console=findViewById(R.id.input);
+        txtview = (TextView)findViewById(R.id.invisibletxtview);
         console.setShowSoftInputOnFocus(false);
 
         console.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(getString(R.string.console).equals(console.getText().toString())){
-                    console.setText("");
+                           console.setText("");
                 }
+            }
+        });
+        console.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtview.setText(s.toString());
+                float size=txtview.getTextSize();
+                size=size/3;
+                console.setTextSize(size);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
    }
@@ -51,6 +81,7 @@ public class calculator extends AppCompatActivity {
         updateText("1");
     }
     public void equalBtn(View view){
+        int cursorPos=console.getSelectionStart();
         String userExp=console.getText().toString();
 //        userExp=userExp.replaceAll("X","*");
 //
@@ -63,6 +94,7 @@ public class calculator extends AppCompatActivity {
 
         MathExpression expr = new MathExpression(userExp);
         console.setText(expr.solve());
+        console.setSelection(cursorPos+1);
     }
     public void sixBtn(View view){
         updateText("6");

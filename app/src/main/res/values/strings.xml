@@ -22,6 +22,7 @@
     <string name="point">.</string>
     <string name="equal">=</string>
     <string name="del"></string>
+    <string name="nxtbtn">Next</string>
 <!--    display console-->
     <string name="console">Enter A Value</string>
 </resources>
